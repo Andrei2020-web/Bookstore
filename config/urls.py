@@ -19,9 +19,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     # добавлен url управления пользователями
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('allauth.urls')),
     # добавлен url домашней страницы
     path('', include('pages.urls')),
-    # добавлен url для управления пользователями(регистрация)
-    path('accounts/', include('accounts.urls')),
 ]
