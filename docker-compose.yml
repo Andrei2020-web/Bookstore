@@ -10,6 +10,13 @@ services:
       - 8000:8000
     depends_on:
       - db
+    environment:
+      - "DJANGO_SECRET_KEY=your_key"
+      - "DJANGO_DEBUG=True"
+      - "POSTGRES_USER=postgres"
+      - "POSTGRES_PASSWORD=postgres"
+      - "POSTGRES_DB=postgres"
+      - "POSTGRES_HOST=db"
 
   db:
     image: postgres
