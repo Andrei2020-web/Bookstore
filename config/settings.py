@@ -56,6 +56,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.github',
     # добавлена социальная аутентификация для yandex
     'allauth.socialaccount.providers.yandex',
+    # добавлено приложение books
+    'books',
 ]
 
 MIDDLEWARE = [

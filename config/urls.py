@@ -22,4 +22,5 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     # добавлен url домашней страницы
     path('', include('pages.urls')),
+    path('books/', include('books.urls')),
 ]
