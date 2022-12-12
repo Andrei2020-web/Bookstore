@@ -1,7 +1,8 @@
 from django.test import TestCase
 from django.urls import reverse, resolve
-from .models import Book
+from .models import Book, Review
 from .views import BookListView, BookDetailView
+from django.contrib.auth import get_user_model
 
 
 class BookTests(TestCase):
@@ -12,6 +13,16 @@ class BookTests(TestCase):
             title='Python. Разработка на основе тестирования',
             author='Персиваль Гарри',
             price='2500',
+        )
+        self.user = get_user_model().objects.create_user(
+            username='reviewuser',
+            email='reviewuser@mail.ru',
+            password='%%%%%%%%',
+        )
+        self.review = Review.objects.create(
+            book=self.book,
+            author=self.user,
+            review='Хорошая книга.'
         )
 
     def test_book_listing(self):
@@ -43,6 +54,8 @@ class BookTests(TestCase):
         self.assertTemplateUsed(response, 'books/book_detail.html')
         self.assertContains(response,
                             'Python. Разработка на основе тестирования')
+        self.assertContains(response, 'Отзывы')
+        self.assertContains(response, 'Хорошая книга.')
 
     def test_book_list_url_resolves_book_list_view(self):
         '''тест: url страницы списка книг разрешает вызов функции представления'''
