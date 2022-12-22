@@ -5,13 +5,9 @@
 
 {% block content %}
   <h1>Домашняя страница</h1>
-  <img class="bookcover" src="{% static 'images/dfp_cover_31.png' %}">
-  {% if user.is_authenticated %}
-    <p>Hi, {{ user.email }}!</p>
-    <p><a href="{% url 'account_logout' %}">Выход</a></p>
-  {% else %}
-    <p>Вы не вошли в систему</p>
-    <a href="{% url 'account_login' %}">Войти</a>
-    <a href="{% url 'account_signup' %}">Регистрация</a>
-  {% endif %}
+  <form class="form-inline mt-2 mt-md-0" action="{% url 'search_results' %}"
+        method="get">
+    <input name="q" class="form-control mr-sm-2" type="text" placeholder="Найти"
+           aria-label="Search">
+  </form>
 {% endblock content %}
