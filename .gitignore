@@ -4,3 +4,4 @@
 /db.sqlite3
 /Pipfile
 /Pipfile.lock
+/docker-compose-prod.yml

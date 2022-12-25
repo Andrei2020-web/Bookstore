@@ -19,7 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('hard-admin/', admin.site.urls),
     # добавлен url управления пользователями
     path('accounts/', include('allauth.urls')),
     # добавлен url домашней страницы
