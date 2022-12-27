@@ -3,9 +3,17 @@
 {% block title %}Книги{% endblock title %}
 
 {% block content %}
+<div class="card-group">
   {% for book in book_list %}
-    <div>
-      <h2><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></h2>
+  <div class="card">
+    <a href="{{ book.get_absolute_url }}">
+      <img src="{{ book.cover.url }}" class="card-img-top"
+           alt="{{ book.title }}">
+    </a>
+    <div class="card-body">
+      <h5 class="card-title">{{ book.title }}</h5>
     </div>
+  </div>
   {% endfor %}
+</div>
 {% endblock content %}
