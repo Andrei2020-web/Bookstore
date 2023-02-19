@@ -16,3 +16,31 @@ ___
 ![demo1](demo1.jpg)
 ![demo2](demo2.jpg)
 ![demo3](demo3.jpg)
+
+## Настройка перед запуском
+
+Первое, что нужно сделать, это cклонировать репозиторий:
+
+```sh
+$ git clone https://github.com/Andrei2020-web/Bookstore.git
+$ cd Bookstore
+```
+
+Создайте виртуальную среду для установки зависимостей и активируйте ее:
+
+```sh
+$ virtualenv venv
+$ source venv/bin/activate
+```
+
+Затем установите зависимости:
+
+```sh
+(venv)$ pip install -r requirements.txt
+```
+
+Запускаем сервер:
+
+```sh
+(venv)$ python manage.py runserver
+```
